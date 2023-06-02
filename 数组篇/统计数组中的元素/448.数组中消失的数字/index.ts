@@ -22,4 +22,4 @@ function findDisappearedNumbers(nums: number[]): number[] {
     // res.splice(0,1)
     // console.log(res)
     return res
-};
+}
