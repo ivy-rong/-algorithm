@@ -18,3 +18,27 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
   }
   return head
 }
+
+// 节流 函数
+
+function throttle(fun, delay) {
+  let lastTimeStamp = 0
+  return function (...args: any) {
+    const curTimeStamp = Date.now()
+    if (curTimeStamp - lastTimeStamp > delay) {
+      fun.apply(this, args)
+      lastTimeStamp = curTimeStamp
+    }
+  }
+}
+
+// 防抖 触发某个操作时 执行最后一次
+function debounce(fun, delay) {
+  let timeoutId
+  return function (...args) {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => {
+      fun.apply(this, args)
+    }, delay)
+  }
+}
